@@ -18,17 +18,14 @@ import {
  */
 export const createTable = mysqlTableCreator((name) => `flashy_${name}`);
 
-export const posts = createTable(
-  "post",
+export const flashcards = createTable(
+  "flashcards",
   {
     id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
-    name: varchar("name", { length: 256 }),
+    question: varchar("question", { length: 256 }),
+    answer: varchar("answer", { length: 2048 }),
     createdAt: timestamp("created_at")
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
-    updatedAt: timestamp("updated_at").onUpdateNow(),
   },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
-  })
 );

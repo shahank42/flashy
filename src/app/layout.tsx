@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+import { cn } from "~/lib/utils";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -13,8 +14,15 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={cn("h-full", GeistSans.variable)}>
+      <body
+        className={cn('relative h-full font-sans antialiased')}
+      >
+        <main className='relative flex flex-col min-h-screen'>
+          <div className='flex-grow flex-1'>{children}</div>
+        </main>
+      </body>
     </html>
+
   );
 }
