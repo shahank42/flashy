@@ -19,7 +19,7 @@ export async function getFlashcards() {
 
 export async function createFlashcard(values: z.infer<typeof addFlashcardFormSchema>) {
   await db.insert(flashcards).values(values);
-  revalidatePath("/admin")
+  revalidatePath('/', 'layout')
 }
 
 export async function updateFlashcard(values: z.infer<typeof editFlashcardFormSchema>) {
@@ -29,10 +29,10 @@ export async function updateFlashcard(values: z.infer<typeof editFlashcardFormSc
       answer: values.answer,
     })
     .where(eq(flashcards.id, values.id))
-  revalidatePath("/admin")
+  revalidatePath('/', 'layout')
 }
 
 export async function deleteFlashcard(id: number) {
   await db.delete(flashcards).where(eq(flashcards.id, id))
-  revalidatePath("/admin")
+  revalidatePath('/', 'layout')
 }
