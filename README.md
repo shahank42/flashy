@@ -1,29 +1,55 @@
-# Create T3 App
+# Flashy
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Flashy is a streamlined flashcard CRUD application featuring a clean and user-friendly interface. Explore the live application at [Flashy](https://flashy-lilac.vercel.app/).
 
-## What's next? How do I make an app with this?
+This project was bootstrapped using `create-t3-app`.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Getting Started
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+### Prerequisites
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- `node`
+- `docker`
+- `npm`, `pnpm` or any package manager of your choice
 
-## Learn More
+### Running the Application Locally
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/shahank42/flashy
+   cd flashy
+   ```
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+2. **Set Up Environment Variables:**
+   Copy the contents of `.env.example` to a new `.env` file in the root directory:
+   ```bash
+   cp .env.example .env
+   ```
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+3. **Initialize the Database:**
+   Execute the following script to set up a local MySQL database instance:
+   ```bash
+   ./start-database.sh
+   ```
 
-## How do I deploy this?
+4. **Install Dependencies:**
+   Use `pnpm` to install all required dependencies:
+   ```bash
+   pnpm install
+   ```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+5. **Run the Development Server:**
+   Start the development server with:
+   ```bash
+   pnpm run dev
+   ```
+
+   > **Note:** Using `bun` may cause TypeScript errors. It is recommended to use `pnpm` or `npm` for a smoother experience.
+
+## Future Enhancements
+
+- **Optimistic UI Updates:** Improve the user experience with real-time interface feedback.
+- **Loading States:** Add loading indicators for submit buttons to enhance UX.
+- **State Management:** Integrate `tanstack-query` for more efficient state management, cache invalidation, and promise resolution.
+- **Dark Mode:** Implement dark mode for better accessibility and aesthetics.
+- **Color Scheme:** Consider refining the color palette to achieve a cleaner look.
